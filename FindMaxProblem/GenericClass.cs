@@ -13,7 +13,7 @@ namespace FindMaxProblem
     public class GenericClass<T> where T: IComparable
     {
         //defining variable of generic type
-        T first, second, third;
+        T[] inputNumbers;
 
         /// <summary>
         /// parameter constructor to initialize variables
@@ -21,11 +21,9 @@ namespace FindMaxProblem
         /// <param name="first"></param>
         /// <param name="second"></param>
         /// <param name="third"></param>
-        public GenericClass(T first, T second,T third)
+        public GenericClass(params T[]inputNumbers)
         {
-            this.first = first;
-            this.second = second;
-            this.third = third;
+            this.inputNumbers = inputNumbers;
         }
 
         /// <summary>
@@ -49,6 +47,17 @@ namespace FindMaxProblem
             }
         }
         /// <summary>
+        /// used to sort a array which is created due to declaration of params
+        /// params help to take any no of input and stores them an array dynamically without initializing and declaring no of inputs in it
+        /// </summary>
+        /// <param name="inputNumbers"></param>
+        /// <returns></returns>
+        public static T SortingOfNumbers(params T[] inputNumbers)
+        {
+            Array.Sort(inputNumbers);
+            return inputNumbers[inputNumbers.Length - 1];
+        }
+        /// <summary>
         /// used to pass the values from parametrized constructor to MaxAmongThree static method
         /// static method can not be directly called using object
         /// //if variables are not passed to maxthreemethod from here and removed from parameters,
@@ -58,8 +67,8 @@ namespace FindMaxProblem
         /// </summary>
         /// <returns></returns>
         public T GetMethod()
-        {
-            T maximum = MaxAmongThree(first, second, third);
+        { 
+            T maximum = SortingOfNumbers(inputNumbers);
             return maximum;
         }
     }
