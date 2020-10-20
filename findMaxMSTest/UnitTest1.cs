@@ -113,6 +113,60 @@ namespace findMaxMSTest
             //assert
             Assert.AreEqual(actual, expected);
         }
+        /// <summary>
+        /// Validating generic method for int using parametrized constructor
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="expected"></param>
+        [TestMethod]
+        [DataRow(43, 45, 66, 66)]
+        public void MaxFromGenericForIntUsingParametrizedConstructor(int a, int b, int c, int expected)
+        {
+            //Arrange
+            GenericClass<int> genericClass = new GenericClass<int>(a,b,c);
+            //add
+            int actual = genericClass.GetMethod();
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
+        /// <summary>
+        /// validating generic method for float input using parametrized constructor
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="expected"></param>
+        [TestMethod]
+        [DataRow(43.4f, 45.5f, 66.7f, 66.7f)]
+        public void MaxFromGenericForFloatUsingParametrizedConstructor(float a, float b, float c, float expected)
+        {
+            //Arrange
+            GenericClass<float> genericClass = new GenericClass<float>(a, b, c);
+            //add
+            float actual = genericClass.GetMethod();
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
+        /// <summary>
+        /// validating generic method for string input using parametrized constructor
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="expected"></param>
+        [TestMethod]
+        [DataRow("43.4", "122", "6.67", "6.67")]
+        public void MaxFromGenericForStringusingparametrizedConstructor(string a, string b, string c, string expected)
+        {
+            //assert
+            GenericClass<string> genericClass = new GenericClass<string>(a, b, c);
+            //Add
+            string actual = genericClass.GetMethod();
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
     }
     
 }
