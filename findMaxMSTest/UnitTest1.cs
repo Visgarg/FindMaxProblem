@@ -45,5 +45,25 @@ namespace findMaxMSTest
             //Assert
             Assert.AreEqual(actual, expected);
         }
+        /// <summary>
+        /// used to test max of string numbers coming from non generic class
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="expected"></param>
+        [TestMethod]
+        [DataRow("45", "47", "60", "60")]
+        [DataRow("1212", "122", "1160", "122")]
+        [DataRow("440", "47", "60", "60")]
+        public void MaxValuefromStrings(string a, string b, string c, string expected)
+        {
+            //Arrange
+            //add
+            string actual = NonGenericClass.MaxstringNumberAmongThree(a, b, c);
+            //Assert
+            Assert.AreEqual(actual, expected);
+        }
     }
+    
 }

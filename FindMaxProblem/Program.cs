@@ -20,6 +20,9 @@ namespace FindMaxProblem
                 //calling non generic method to find max of 3 floats
                 float maxFloat = NonGenericClass.MaxfloatNumberAmongThree(23, 24, 22);
                 Console.WriteLine("max float value is\t" + maxFloat);
+                //calling non generic method to find max of 3 strings
+                string maxString = NonGenericClass.MaxstringNumberAmongThree("23", "24", "22");
+                Console.WriteLine("max string value is\t" + maxString);
             }
             catch(Exception ex)
             {
