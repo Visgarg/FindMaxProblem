@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FindMaxProblem;
+using System.Threading;
 
 namespace findMaxMSTest
 {
@@ -62,6 +63,54 @@ namespace findMaxMSTest
             //add
             string actual = NonGenericClass.MaxstringNumberAmongThree(a, b, c);
             //Assert
+            Assert.AreEqual(actual, expected);
+        }
+        /// <summary>
+        /// Validating generic method for int
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="expected"></param>
+        [TestMethod]
+        [DataRow(43,45,66,66)]
+        public void MaxFromGenericForInt(int a, int b, int c,int expected)
+        {
+            //Arrange
+            int actual= GenericClass<int>.MaxAmongThree(a, b, c);
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
+        /// <summary>
+        /// validating generic method for float input
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="expected"></param>
+        [TestMethod]
+        [DataRow(43.4f, 45.5f, 66.7f, 66.7f)]
+        public void MaxFromGenericForFloat(float a, float b, float c, float expected)
+        {
+            //Arrange
+            float actual = GenericClass<float>.MaxAmongThree(a, b, c);
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
+        /// <summary>
+        /// validating generic method for string input
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="expected"></param>
+        [TestMethod]
+        [DataRow("43.4", "122", "6.67", "6.67")]
+        public void MaxFromGenericForString(string a, string b, string c, string expected)
+        {
+            //Arrange
+            string actual = GenericClass<string>.MaxAmongThree(a, b, c);
+            //assert
             Assert.AreEqual(actual, expected);
         }
     }

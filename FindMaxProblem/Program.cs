@@ -23,6 +23,9 @@ namespace FindMaxProblem
                 //calling non generic method to find max of 3 strings
                 string maxString = NonGenericClass.MaxstringNumberAmongThree("23", "24", "22");
                 Console.WriteLine("max string value is\t" + maxString);
+                //using generic class to print max of 3 numbers
+                int maxFromGeneric= GenericClass<int>.MaxAmongThree(23, 45, 555);
+                Console.WriteLine("max from generic\t" + maxFromGeneric);
             }
             catch(Exception ex)
             {
